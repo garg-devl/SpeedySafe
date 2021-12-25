@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.weather.WeatherFragment">
+
+    <ProgressBar
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/progressBar"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/black"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        tools:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutItems">
+
+        <ImageView
+            android:id="@+id/imageWeather"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="@dimen/marginHorizontal"
+            android:src="@drawable/cloud_001"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tempText"
+                android:textSize="@dimen/textHeading"
+                android:text="21"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textUnit"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:text="°C"
+                android:textColor="@color/black"
+                android:layout_gravity="start"
+                android:textSize="@dimen/textXlarge" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="@dimen/marginHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textDate"
+            android:textSize="@dimen/textMedium"
+            android:text="15th Jan , 2021"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <View
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="@dimen/marginHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:background="@color/black"/>
+
+        <ScrollView
+            android:paddingVertical="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_marginHorizontal="@dimen/marginHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/imageDimen"
+                            android:layout_height="@dimen/imageDimen"
+                            android:background="@drawable/wind"
+                            android:backgroundTint="@color/black"/>
+
+                        <TextView
+                            android:id="@+id/textWind"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textLarge"
+                            android:text="Wind Speed"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textMedium"
+                            android:text="Wind"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/imageDimen"
+                            android:layout_height="@dimen/imageDimen"
+                            android:backgroundTint="@color/black"
+                            android:background="@drawable/humidity"/>
+
+                        <TextView
+                            android:id="@+id/textHumidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textLarge"
+                            android:text="Humidity"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textMedium"
+                            android:text="Humidity"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/imageDimen"
+                            android:layout_height="@dimen/imageDimen"
+                            android:background="@drawable/icon_visibility"
+                            android:backgroundTint="@color/black"/>
+
+                        <TextView
+                            android:id="@+id/textVisibility"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textLarge"
+                            android:text="Visibility"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textMedium"
+                            android:text="Visibility"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/marginHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/imageDimen"
+                            android:layout_height="@dimen/imageDimen"
+                            android:background="@drawable/uv_image"
+                            android:backgroundTint="@color/black"/>
+
+                        <TextView
+                            android:id="@+id/textUV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textLarge"
+                            android:text="UV"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textMedium"
+                            android:text="Uv"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/imageDimen"
+                            android:layout_height="@dimen/imageDimen"
+                            android:backgroundTint="@color/black"
+                            android:background="@drawable/temprature"/>
+
+                        <TextView
+                            android:id="@+id/textFeelsLike"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textLarge"
+                            android:text="Feels Like"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textMedium"
+                            android:text="Feels Like"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/imageDimen"
+                            android:layout_height="@dimen/imageDimen"
+                            android:background="@drawable/pressure"
+                            android:backgroundTint="@color/black"/>
+
+                        <TextView
+                            android:id="@+id/textPressure"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textLarge"
+                            android:text="Air Pressure"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textMedium"
+                            android:text="Air Pressure"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

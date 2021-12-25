@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="Name"
+        android:hint="Contact's Name"
+        android:id="@+id/contactNameEnter"
+        />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="Relation"
+        android:hint="Contact's Relation"
+        android:id="@+id/relationEnter"
+        />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="Contact"
+        android:hint="Contact's Number"
+        android:id="@+id/mobileNoEnter"
+        android:inputType="number"
+        />
+
+    <com.royrodriguez.transitionbutton.TransitionButton
+        android:layout_gravity="center"
+        android:id="@+id/addContactButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingHorizontal="40dp"
+        android:text="Add Contact"
+        android:textColor="@android:color/white"
+        app:defaultColor="#2979FF"
+        app:loaderColor="#18FFFF" />
+
+</LinearLayout>

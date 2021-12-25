@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "992294839707",
+    "project_id": "speedysafe-89d96",
+    "storage_bucket": "speedysafe-89d96.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992294839707:android:49edfa67122ae6efabed3e",
+        "android_client_info": {
+          "package_name": "com.example.speedysafe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992294839707-tim6gcdaesij1potiocsiv4tmiat3puq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.speedysafe",
+            "certificate_hash": "c2c0d78db75b27b2844e79fbab8f3fe2ab326ce9"
+          }
+        },
+        {
+          "client_id": "992294839707-ugq5bcmm8i86a9j6up4m7784bbrrfd4r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBS10m5IILypy8U0d6_0-1l1RRdBLAYXqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992294839707-ugq5bcmm8i86a9j6up4m7784bbrrfd4r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

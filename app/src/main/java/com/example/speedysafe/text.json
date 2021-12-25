@@ -1,0 +1,177 @@
+[
+    {
+        "Name" : "Sant Soham hospital",
+        "Address" : "Rithala Road, Pocket 4, Sector 11E, Rohini, Delhi, 110085",
+        "MobileNumber" : "NA",
+        "Latitude" : "28.735617",
+        "Longitude": "77.112993"
+    },
+    {
+        "Name" : "Super Speciality Hospital Government Medical College Jammu",
+        "Address" : "Resham Ghar Colony, Jammu, Jammu and Kashmir 180016",
+        "MobileNumber" : "+911912520816",
+        "Latitude" : "32.730216",
+        "Longitude": "74.857419"
+    },
+    {
+        "Name" : "Shri Maharaja Gulab Singh Hospital",
+        "Address" : "PVM6+7QJ, Shalamar, Resham Ghar Colony, Jammu, Jammu and Kashmir 180001",
+        "MobileNumber" : "+911912547635",
+        "Latitude" : "32.733135",
+        "Longitude": "74.860836"
+    },
+    {
+        "Name" : "Government Medical College and hospital",
+        "Address" : "maheshpura, chowk, Bakshi Nagar, Jammu, Jammu and Kashmir 180001",
+        "MobileNumber" : "+911912584234",
+        "Latitude" : "32.736122",
+        "Longitude": "74.854392"
+    },
+    {
+        "Name" : "S.H.S Memorial Hospital & Maternity Centre",
+        "Address" : "33, Rehari Chungi, Gurudwara Road Jammu Jammu and Kashmir, 180005",
+        "MobileNumber" : "+911912580754",
+        "Latitude" : "32.743334",
+        "Longitude": "74.858946"
+    },
+    {
+        "Name" : "MAHARISHI DAYANAND HOSPITAL & MEDICAL RESEARCH CENTRE",
+        "Address" : "PVG3+6G9, Nawabad, Jammu, Jammu and Kashmir 180016",
+        "MobileNumber" : "+911912545225",
+        "Latitude" : "32.726417",
+        "Longitude": "74.854531"
+    },
+    {
+        "Name" : "Govt. Hospital Sarwal",
+        "Address" : "Rehari Colony, Jammu, Jammu and Kashmir 180005",
+        "MobileNumber" : "+911912579402",
+        "Latitude" : "32.747124",
+        "Longitude": "32.747124"
+    },
+    {
+        "Name" : "Swami Vivekananda Hospital",
+        "Address" : "Ved Mandir Road, Amphalla, Jammu, Jammu and Kashmir 180005",
+        "MobileNumber" : "+911912547418",
+        "Latitude" : "32.745179",
+        "Longitude": "74.865247"
+    },
+    {
+        "Name" : "Government Hospital Gandhi Nagar, Jammu",
+        "Address" : "Gandhi Nagar, Jammu, Jammu and Kashmir 180004",
+        "MobileNumber" : "+911912430041",
+        "Latitude" : "32.705234",
+        "Longitude": "74.859240"
+    },
+    {
+        "Name" : "Narayana Hospital",
+        "Address" : "15-C, Sansar Tower, 2nd Extension, Gandhi Nagar",
+        "MobileNumber" : "NA",
+        "Latitude" : "32.708982",
+        "Longitude": "74.870513"
+    },
+    {
+        "Name" : "Shri Mata Vaishno Devi Narayana Superspeciality Hospital",
+        "Address" : "Kakryal (Village & Post) Katra Tehsil Reasi District, Katra, Jammu and Kashmir 182320",
+        "MobileNumber" : "+919070888111",
+        "Latitude" : "32.946867",
+        "Longitude": "74.947600"
+    },
+    {
+        "Name" : "Satyam Hospital",
+        "Address" : "64, 65/A-4, Dr KN Katju Marg, Pocket 4, Sector 16A, Rohini, Delhi, 110089",
+        "MobileNumber" : "NA",
+        "Latitude" : "28.732450",
+        "Longitude": "77.125360"
+    },
+    {
+        "Name" : "Rathee hospital",
+        "Address" : "gate no.2, A1/159-160, opposite japanese park, Sector 11, Rohini, New Delhi, Delhi 110085",
+        "MobileNumber" : "+919540055690",
+        "Latitude" : "28.727738",
+        "Longitude": "77.114823"
+    },
+    {
+        "Name" : "Max Super Speciality Hospital, Shalimar Bagh",
+        "Address" : "FC 50, Max Wali Rd, C and D Block, Shalimar Place Site, Shalimar Bagh, New Delhi, Delhi 110088",
+        "MobileNumber" : "+911166422222",
+        "Latitude" : "28.728161",
+        "Longitude": "77.152814"
+    },
+    {
+        "Name" : "Dr. Baba Saheb Ambedkar Hospital",
+        "Address" : "Metro Station, Bhagawan Mahavir Marg, Sector 6 Rd, Rohini, New Delhi, Delhi 110085",
+        "MobileNumber" : "+911127933258",
+        "Latitude" : "28.711459",
+        "Longitude": "77.107638"
+    },
+    {
+        "Name" : "ESI Hospital",
+        "Address" : "Dr KN Katju Marg, Opp HP Petrol Pump, Sector 15, Sector 15A, Rohini, New Delhi, Delhi 110089",
+        "MobileNumber" : "+911127861033",
+        "Latitude" : "28.727538",
+        "Longitude": "77.126051"
+    },
+    {
+        "Name" : "Deep Chand Bandhu Hospital",
+        "Address" : "Ashok Vihar Rd, Kokiwala Bagh, Phase 4, Ashok Vihar IV, Ashok Vihar, New Delhi, Delhi 110052",
+        "MobileNumber" : "+911127305950",
+        "Latitude" : "28.681257",
+        "Longitude": "77.177664"
+    },
+    {
+        "Name" : "Bhagwan Mahavir Hospital",
+        "Address" : "H-4,5, Pitam Pura, Delhi, 110034",
+        "MobileNumber" : "+911127034535",
+        "Latitude" : "28.688468",
+        "Longitude": "77.117413"
+    },
+    {
+        "Name" : "Jag Pravesh Chandra Hospital",
+        "Address" : "Panduk Shila Marg, near Northern Engineering College, Shastri Park, Shahdara, New Delhi, Delhi 110053",
+        "MobileNumber" : "+911122184453",
+        "Latitude" : "28.676171",
+        "Longitude": "77.262722"
+    },
+    {
+        "Name" : "Govind Ballabh Pant Hospital",
+        "Address" : "1, Jawaharlal Nehru Marg, 64 Khamba, Raj Ghat, New Delhi, Delhi 110002",
+        "MobileNumber" : "+911123234242",
+        "Latitude" : "28.639158",
+        "Longitude": "77.235350"
+    },
+    {
+        "Name" : "Maharishi Valmiki Hospital",
+        "Address" : "Government of, Puth Khurd Village, New Delhi, Delhi 110039",
+        "MobileNumber" : "+911127761519",
+        "Latitude" : "28.775383",
+        "Longitude": "77.047683"
+    },
+    {
+        "Name" : "Pt. Madan Mohan Malaviya Hospital",
+        "Address" : "Khirki Extension, Malviya Nagar, New Delhi, Delhi 110017",
+        "MobileNumber" : "+911126689999",
+        "Latitude" : "28.535051",
+        "Longitude": "77.213623"
+    },
+    {
+        "Name" : "Lok Nayak Hospital",
+        "Address" : "metro Station Central, Jawaharlal Nehru Marg, near Delhi Gate, New Delhi, Delhi 110002",
+        "MobileNumber" : "+911123232400",
+        "Latitude" : "28.638222",
+        "Longitude": "77.238511"
+    },
+    {
+        "Name" : "Sardar Vallabh Bhai Patel Hospital",
+        "Address" : "East Patel Nagar, Patel Nagar, New Delhi, Delhi 110008",
+        "MobileNumber" : "+911125881201",
+        "Latitude" : "28.647209",
+        "Longitude": "77.168773"
+    },
+    {
+        "Name" : "AIIMS Hospital - New Delhi",
+        "Address" : "AIIMS Campus Temple, Hospital Store, Ansari Nagar East, New Delhi, Delhi 110016",
+        "MobileNumber" : "NA",
+        "Latitude" : "28.567429",
+        "Longitude": "77.209493"
+    }
+]
