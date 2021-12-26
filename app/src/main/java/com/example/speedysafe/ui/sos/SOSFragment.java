@@ -82,6 +82,7 @@ public class SOSFragment extends Fragment {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show();
+                                getDataFromFirebase();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
@@ -198,8 +199,8 @@ public class SOSFragment extends Fragment {
 
             if(latitude - hospital.Latitude < diffLat && longitude - hospital.Longitude < diffLong){
                 closest = hospital;
-                diffLat = latitude - hospital.Latitude;
-                diffLong = longitude - hospital.Longitude;
+                diffLat = Math.abs(latitude - hospital.Latitude);
+                diffLong = Math.abs(longitude - hospital.Longitude);
             }
         }
 
