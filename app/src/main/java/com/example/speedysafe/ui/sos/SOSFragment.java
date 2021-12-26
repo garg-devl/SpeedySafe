@@ -1,10 +1,16 @@
 package com.example.speedysafe.ui.sos;
 
+import static android.content.Context.LOCATION_SERVICE;
 import static android.content.Context.MODE_PRIVATE;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,11 +19,14 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.speedysafe.ItemEmergencyContact;
 import com.example.speedysafe.databinding.AddContactNumberDialogBinding;
 import com.example.speedysafe.databinding.FragmentSosBinding;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -31,11 +40,14 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 
-public class SOSFragment extends Fragment {
+public class SOSFragment extends Fragment implements LocationListener {
 
     private FragmentSosBinding binding;
     DatabaseReference reference;
     SharedPreferences preferences;
+    LocationManager locationManager;
+    FusedLocationProviderClient fusedLocationClient;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -56,6 +68,12 @@ public class SOSFragment extends Fragment {
         String contactNumber = getItemFromSharedPreference("contactNumber");
 
         reference = FirebaseDatabase.getInstance("https://speedysafe-89d96-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference(contactNumber);
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext());
+
+        locationManager = (LocationManager) requireContext().getSystemService(LOCATION_SERVICE);
+
+        getDataFromSharedPreference();
 
         binding.editEmergencyContact.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,21 +117,25 @@ public class SOSFragment extends Fragment {
         });
 
         getDataFromFirebase();
-        getNearestHospital();
         super.onStart();
     }
 
-    private void getNearestHospital() {
-        ItemHospital hospital = findNearestHospital();
+    private void getNearestHospital(double latitude, double longitude) {
+        ItemHospital hospital = findNearestHospital(latitude, longitude);
 
         binding.nameNearbyHospital.setText(hospital.Name);
         binding.nearestHospitalAddress.setText(hospital.Address);
 
-        binding.callEmergencyContact.setOnClickListener(view -> {
-            Intent intent = new Intent(Intent.ACTION_CALL);
-            intent.setData(Uri.parse("tel:" + hospital.MobileNumber));
-            requireContext().startActivity(intent);
-        });
+            binding.callNearestHospital.setOnClickListener(view -> {
+
+                if(hospital.MobileNumber.equals("NA")){
+                    Toast.makeText(requireContext(), "No Contact Number found for hospital", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:" + hospital.MobileNumber));
+                    requireContext().startActivity(intent);
+                }
+            });
     }
 
     void getDataFromFirebase(){
@@ -129,7 +151,7 @@ public class SOSFragment extends Fragment {
                     binding.numberEmergencyContact.setText(contact.Contact);
 
                     binding.callEmergencyContact.setOnClickListener(view -> {
-                        Intent intent = new Intent(Intent.ACTION_CALL);
+                        Intent intent = new Intent(Intent.ACTION_DIAL);
                         intent.setData(Uri.parse("tel:" + contact.Contact));
                         requireContext().startActivity(intent);
                     });
@@ -152,7 +174,19 @@ public class SOSFragment extends Fragment {
         });
     }
 
-    ItemHospital findNearestHospital(){
+    void getDataFromSharedPreference(){
+        String latFetch = getItemFromSharedPreference("lat");
+        if(latFetch.isEmpty()) latFetch = "28.736896";
+
+        String longFetch = getItemFromSharedPreference("long");
+        if(longFetch.isEmpty()) longFetch = "77.111996";
+
+        //Toast.makeText(requireContext(), "lat = " + latFetch + " & long = " + longFetch, Toast.LENGTH_SHORT).show();
+
+        getNearestHospital(Double.parseDouble(latFetch), Double.parseDouble(longFetch));
+    }
+
+    ItemHospital findNearestHospital(double latitude, double longitude){
 
         ArrayList<ItemHospital> hospitalArrayList = new ArrayList<>();
         hospitalArrayList.add(new ItemHospital("Sant Soham hospital", "Rithala Road, Pocket 4, Sector 11E, Rohini, Delhi, 110085", "NA", 28.735617,77.112993));
@@ -181,32 +215,42 @@ public class SOSFragment extends Fragment {
         hospitalArrayList.add(new ItemHospital("Sardar Vallabh Bhai Patel Hospital", "East Patel Nagar, Patel Nagar, New Delhi, Delhi 110008", "+911125881201", 28.647209,77.168773));
         hospitalArrayList.add(new ItemHospital("AIIMS Hospital - New Delhi", "AIIMS Campus Temple, Hospital Store, Ansari Nagar East, New Delhi, Delhi 110016", "NA", 28.567429,77.209493));
 
-        String latFetch = getItemFromSharedPreference("latitude");
-        if(latFetch.isEmpty()) latFetch = "28.736896";
+        double diffLat = Double.MAX_VALUE, diffLong = Double.MAX_VALUE;
+        ItemHospital closestHospital = new ItemHospital();
 
-        String longFetch = getItemFromSharedPreference("longitude");
-        if(longFetch.isEmpty()) longFetch = "77.111996";
+        for(int i =0; i < hospitalArrayList.size(); i++){
+            double checkLat = 0, checkLong = 0;
 
-        double latitude = Double.parseDouble(latFetch);
-        double longitude = Double.parseDouble(longFetch);
+            ItemHospital closest = hospitalArrayList.get(i);
+            if(closest.Latitude < 0 && latitude < 0){
+                checkLat = Math.abs(-closest.Latitude -(-latitude));
+            }else if(closest.Latitude < 0){
+                checkLat = Math.abs(-closest.Latitude - latitude);
+            }else if(latitude < 0){
+                checkLat = Math.abs(closest.Latitude - (-latitude));
+            }else if(closest.Longitude < 0 && longitude < 0){
+                checkLong = Math.abs(-closest.Longitude -(-longitude));
+            }else if(closest.Longitude < 0){
+                checkLong = Math.abs(-closest.Longitude - longitude);
+            }else if(longitude < 0){
+                checkLong = Math.abs(closest.Longitude - (-longitude));
+            }
 
-        ItemHospital closest = hospitalArrayList.get(0);
-        double diffLat = closest.Latitude - latitude;
-        double diffLong = closest.Longitude - longitude;
-
-        for(int i =1; i < hospitalArrayList.size(); i++){
-            ItemHospital hospital = hospitalArrayList.get(i);
-
-            if(latitude - hospital.Latitude < diffLat && longitude - hospital.Longitude < diffLong){
-                closest = hospital;
-                diffLat = Math.abs(latitude - hospital.Latitude);
-                diffLong = Math.abs(longitude - hospital.Longitude);
+            if(checkLat< diffLat && checkLong < diffLong){
+                diffLat = checkLat;
+                diffLong = checkLong;
+                closestHospital = closest;
             }
         }
 
-        return closest;
+        return closestHospital;
     }
 
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        Toast.makeText(getContext(), "location changed", Toast.LENGTH_SHORT).show();
+        getNearestHospital(location.getLatitude(), location.getLongitude());
+    }
 
 //    "Name" : "Sant Soham hospital",
 //            "Address" : "Rithala Road, Pocket 4, Sector 11E, Rohini, Delhi, 110085",

@@ -182,11 +182,11 @@ public class HomeFragment extends Fragment implements LocationListener {
                 checkSpeed(speed);
             }
 
-            addIntoSharedPreference("lat", lat2 + "");
-            addIntoSharedPreference("long", lon2 + "");
             lat1 = lat2;
             lon1 = lon2;
         }
+        addIntoSharedPreference("lat", lat2 + "");
+        addIntoSharedPreference("long", lon2 + "");
     }
 
     public void addIntoSharedPreference(String key, String value){
